@@ -1,7 +1,0 @@
-check keys and their values in the dictionary.
-if key(value) > CONSTANTS max rides for each key then print "enjoy your ride" and add 1 to the value of the key as the new value
-
-
-reset dictionary key:values after each run
-
-create another dictionary which shows the total # of each key(value)
