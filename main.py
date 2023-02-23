@@ -8,7 +8,6 @@ premium_band_numbers = range(200, 249)
 
 
 BAND_TYPES = ["basic", "moderate", "premium"]
-# RIDES = ["ATV", "Carting", "Paintballing"]
 
 # ride_status = 0
 band_number = int()
@@ -19,6 +18,19 @@ band_status = ""
 rides = {"ATV": int(0), "Carting": int(0), "Paintballing": int(0)}
 
 # check band status funtion
+
+
+def status():
+    if band_type == str(BAND_TYPES[0]):
+        while rides.values("ATV") < B_MAX_RIDES:
+            # rides.update({"ATV":  })
+            # rides.values("ATV") =
+            rides.update({"ATV": rides.values("ATV" + int(1))})
+            print("Enjoy your " + rides.values(("ATV")) + "ride!")
+    else:
+        print("oyyee!!")
+    # elif band_type == BAND_TYPES[1]:
+
 
 # def status():
 #     for i in RIDES:
@@ -69,4 +81,5 @@ def main():
     scan()
 
 
+status()
 main()
