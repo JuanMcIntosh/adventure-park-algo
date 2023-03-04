@@ -65,17 +65,31 @@ def status():
     global band_status
     global band_type
     if band_type == "basic":  # BAND_TYPES[0]:
-        print("Band match!")
-        # if rides.values("ATV") < B_MAX_RIDES:
-        #     # rides.update({"ATV":  })
-        #     # rides.values("ATV") =
-        #     rides.update({"ATV": rides.values("ATV" + int(1))})
-        #     print("Enjoy your " + rides.values(("ATV")) + "ride!")
-        #     exit()
+        print("Basic Band!")
+        if rides.get("ATV") < B_MAX_RIDES:
+            rides["ATV"] = (
+                rides.get("ATV", ()) + 1
+            )  # upadtes the dictionary value of the item "ATV" to it's value when checked + 1
+            print("Enjoy your ATV ride!")
+            exit()
     else:
-        print("No se.")
-    #     exit()
-    # elif band_type == BAND_TYPES[1]:
+        if band_type == "moderate":  # BAND_TYPES[1]:
+            print("Moderate Band!")
+            if rides.get("ATV") < M_MAX_RIDES:
+                rides["ATV"] = (
+                    rides.get("ATV", ()) + 1
+                )  # upadtes the dictionary value of the item "ATV" to it's value when checked + 1
+            print("Enjoy your ATV ride!")
+            exit()
+        print(
+            band_type + " Band!"
+        )  # Print band type if the band is neither a basic nor moderate band. Hence assuming it is a Premuim band
+        print("Enjoy your ATV ride!")
+        exit()
+
+# Upgrade the adventurer's ride accessibility with payment 
+def upgrade():
+
 
 
 def main():
