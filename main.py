@@ -13,11 +13,14 @@ BAND_TYPES = ["basic", "moderate", "premium"]
 band_number = int()
 band_type = str("")
 band_status = ""
+upgrade = False
+upgraded_band_type = str("")
 
 
 rides = {"ATV": int(0), "Carting": int(0), "Paintballing": int(0)}
 
-# scan to detect armband within a certain proximity of scanner. Determine the class armband and the status.
+
+# scan to detect armband. Determine the class armband and the status.
 
 
 def scan():
@@ -87,9 +90,49 @@ def status():
         print("Enjoy your ATV ride!")
         exit()
 
-# Upgrade the adventurer's ride accessibility with payment 
-def upgrade():
 
+# Upgrade the adventurer's ride accessibility with payment
+
+
+def upgrade():
+    global band_type
+    global prev_band_type
+    if band_type == "basic":
+        print(
+            "You have a "
+            + band_type
+            + "band. Would you like to upgrade to a moderate(1) or a premium(2) band? Enter the number that matches the band you wish to upgrade to."
+        )
+        band_upgrade_num = int(input("Enter the number."))
+        if band_upgrade_num == 1:
+            upgrade = True
+            prev_band_type = band_type
+            band_type = "moderate"
+            status()
+        elif band_upgrade_num == 2:
+            upgrade = True
+            prev_band_type = band_type
+            band_type = "premium"
+            status()
+        else:
+            print("Enter either 1 or 2 to select your upgrade.")
+            band_upgrade_num = int(input("Enter the number."))
+    else:
+        if band_type == "moderate":
+            print(
+                "You have a "
+                + band_type
+                + "band. Would you like to upgrade to a premium(1) band? If yes press enter the number 1."
+            )
+        band_upgrade_num = int(input("Enter the number."))
+        if band_upgrade_num == 1:
+            upgrade = True
+            prev_band_type = band_type
+            band_type = "premium"
+            status()
+        else:
+            print("You can only be upgraded to a premium band.")
+            exit()
 
 
 def main():
